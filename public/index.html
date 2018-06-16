@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset=utf-8>
+    <title>Jeu du Morpion</title>
+    <link rel="stylesheet" href="css/morpion.css">
+<body>
+    <div id="select-party" class="box">
+        <h1>Choisissez une partie</h1>
+        <ul id="open-parties">
+            <li id="new-party">Lancer une nouvelle partie</li>
+        </ul>
+    </div>
+
+    <div class="lightbox">
+        <div class="box">
+            <p></p>
+            <a href="/" id="play-again">Rejouer</a>
+        </div>
+        <div id="form" class="box">
+            <h1>Combien de cases ?</h1>
+            <form action="/" method="POST">
+                <input type="text" id="name" placeholder="Joueur 1">
+                <input type="number" id="width" value="3" max="6" min="3">
+                <br/>
+                <button type="submit">OK</button>
+            </form>
+        </div>
+
+        <div id="form2" class="box">
+                <h1>Pseudo</h1>
+                <form action="/" method="POST">
+                    <input type="text" id="name" placeholder="Joueur 2">
+                    <button type="submit">OK</button>
+                </form>
+            </div>
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/models/board.class.js"></script>
+    <script src="js/models/party.class.js"></script>
+    <script src="js/lib/three.min.js"></script>
+    <script src="js/lib/OrbitControls.js"></script>
+    <script src="js/init.js"></script>
+</body>
+</html>

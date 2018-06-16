@@ -1,0 +1,43 @@
+Hello,
+
+pour lancer le projet il suffit de suivre les étapes suivantes :
+
+- Lancer un terminal et ouvrir ce dossier 
+- $ npm install
+- $ node api.js
+- Puis ouvrir dans le navigateur : http://localhost:8080
+- Il faut 2 onglets (ou deux fenêtres ou deux ordis) pour lancer et rejoindre une partie.
+
+-- OU -- Dispo à l'url : http://dev.thomasderoua.fr:8080 (si la raspberry fonctionne toujours)
+
+-- API --
+
+* Socket IO pour l'interaction entre les joueurs :
+- join / play / end / create / quit
+
+
+Liste des routes :
+
+/party/all : Récupérer toutes les parties en attente d'un second joueur
+
+
+/party/new/:player/:width
+Créer une nouvelle partie avec le nom du joueur 
+et en générant le plateau vide (selon un nombre de cases (width x width))
+Retourne la partie avec l'état "attente d'un second joueur" (wait)
+
+
+/start/:party/:player
+Permet de rejoindre une partie déjà lancée (id party
+Retourne la partie en cours (vide) avec l'état "joueur 1 peut commencer" (running)
+
+
+/play/:party/:player/:move
+Permet de sélectionner une case 
+(pour une case donnée, dans la partie voulue, avec le joueur en cours)
+- Vérifie que la case n'est pas déjà occupée
+- Vérifie les combos (verticaux, horizontaux et en diagonale)
+- Retourne l'état du jeu (avec le plateau + l'état running ou gagné)
+
+
+/ : Route principale qui permet d'afficher le front
